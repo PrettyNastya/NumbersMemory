@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
      */
+    public void goToTrainingFromMaiCnlick(View view) {
+
+        Intent intent = new Intent(MainActivity.this, ActivityTraining.class);
+        startActivity(intent);
+
+    }
 
 
 

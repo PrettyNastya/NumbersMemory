@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name="buttonTextSize">18dp</dimen>
+    <dimen name="number_pad_buttons_side_margin">28dp</dimen>
 
 </resources>
