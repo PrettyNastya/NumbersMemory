@@ -10,10 +10,14 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ActivityTem extends AppCompatActivity {
 
-    Button classicThemeButton, mainActivityButton, roseThemeButton,blyThemeButton, button21, button26, button10, button29, button25, button22, button28;
+    Button classicThemeButton, mainActivityButton, roseThemeButton,blyThemeButton, originale, button26, button10, button29, button25, button22, button28;
 
     ConstraintLayout fonThemActivity;
 
@@ -22,10 +26,11 @@ public class ActivityTem extends AppCompatActivity {
     public static final String APP_PREFERENCES_CLASSIC = "classic";
     public static final String APP_PREFERENCES_ORIGINAL = "original";
     public static final String APP_PREFERENCES_ROSE = "rose";
-    public static final String APP_PREFERENCES_FIOL = "fiol";
+    public static final String APP_PREFERENCES_BLUE = "blue";
 
     SharedPreferences mSettings;
 
+    String currentTheme = "";
 
 
 
@@ -38,7 +43,7 @@ public class ActivityTem extends AppCompatActivity {
         mainActivityButton = findViewById(R.id.button4);
         roseThemeButton = findViewById(R.id.button6);
         blyThemeButton = findViewById(R.id.button8);
-        button21 = findViewById(R.id.button21);
+        originale = findViewById(R.id.button21);
         button26 = findViewById(R.id.button26);
         button10 = findViewById(R.id.button10);
         button29 = findViewById(R.id.button29);
@@ -49,22 +54,23 @@ public class ActivityTem extends AppCompatActivity {
         fonThemActivity = findViewById(R.id.fonThemActivity);
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        themeCheckAndChange();
 
     }
 
     public void setClassicTheme(View view) {
 
-        changeButtonColors(classicThemeButton);
-        changeButtonColors(mainActivityButton);
-        changeButtonColors(roseThemeButton);
-        changeButtonColors(blyThemeButton);
-        changeButtonColors(button21);
-        changeButtonColors(button26);
-        changeButtonColors(button10);
-        changeButtonColors(button29);
-        changeButtonColors(button25);
-        changeButtonColors(button22);
-        changeButtonColors(button28);
+        changeButtonColorsToClassic(classicThemeButton);
+        changeButtonColorsToClassic(mainActivityButton);
+        changeButtonColorsToClassic(roseThemeButton);
+        changeButtonColorsToClassic(blyThemeButton);
+        changeButtonColorsToClassic(originale);
+        changeButtonColorsToClassic(button26);
+        changeButtonColorsToClassic(button10);
+        changeButtonColorsToClassic(button29);
+        changeButtonColorsToClassic(button25);
+        changeButtonColorsToClassic(button22);
+        changeButtonColorsToClassic(button28);
 
         fonThemActivity.setBackgroundColor(getResources().getColor(R.color.wit2));
 
@@ -75,7 +81,7 @@ public class ActivityTem extends AppCompatActivity {
 
     }
 
-    public void changeButtonColors(Button button){
+    public void changeButtonColorsToClassic(Button button){
         button.setBackgroundColor(getResources().getColor(R.color.wit2));
         button.setTextColor(getResources().getColor(R.color.black));
 
@@ -86,7 +92,7 @@ public class ActivityTem extends AppCompatActivity {
         changeButtonsColorsToOriginal(mainActivityButton);
         changeButtonsColorsToOriginal(roseThemeButton);
         changeButtonsColorsToOriginal(blyThemeButton);
-        changeButtonsColorsToOriginal(button21);
+        changeButtonsColorsToOriginal(originale);
         changeButtonsColorsToOriginal(button26);
         changeButtonsColorsToOriginal(button10);
         changeButtonsColorsToOriginal(button29);
@@ -116,7 +122,7 @@ public class ActivityTem extends AppCompatActivity {
         changeButtonsColorsToRose(mainActivityButton);
         changeButtonsColorsToRose(roseThemeButton);
         changeButtonsColorsToRose(blyThemeButton);
-        changeButtonsColorsToRose(button21);
+        changeButtonsColorsToRose(originale);
         changeButtonsColorsToRose(button26);
         changeButtonsColorsToRose(button10);
         changeButtonsColorsToRose(button29);
@@ -125,7 +131,14 @@ public class ActivityTem extends AppCompatActivity {
         changeButtonsColorsToRose(button28);
 
         fonThemActivity.setBackgroundColor(getResources().getColor(R.color.ros));
+
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_ROSE);
+        editor.apply();
+
     }
+
+
     public void changeButtonsColorsToRose(Button button) {
         button.setBackgroundColor(getResources().getColor(R.color.fil2));
         button.setTextColor(getResources().getColor(R.color.wit2));
@@ -140,4 +153,74 @@ public class ActivityTem extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    // алгоритм задержки на заданный промежуток времени
+    public void timerTest() {
+
+        TimerTask task = new TimerTask() {
+
+
+
+            public void run() {
+
+                // взаимодействуем с элементами пользовательского интерфейса (кнопками) только из главного потока
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        makeButtonsInvisible();
+                    } // делаем кнопки нивидимыми
+                });
+
+            }
+
+
+        };
+
+        Timer timer = new Timer("Timer");
+
+        long delay = 5000L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 5 секунд
+
+        timer.schedule(task, delay);
+
+    }
+
+    public void makeButtonsInvisible(){
+
+        blyThemeButton.setVisibility(View.INVISIBLE);
+        button10.setVisibility(View.INVISIBLE);
+        originale.setVisibility(View.INVISIBLE);
+
+    }
+
+    public void themeCheckAndChange(){
+
+
+        if (mSettings.contains(APP_PREFERENCES_THEME)) {
+            currentTheme = mSettings.getString(APP_PREFERENCES_THEME, "");
+        }
+
+        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)){
+            setClassicTheme(classicThemeButton);
+
+        }
+        if (Objects.equals(currentTheme, APP_PREFERENCES_ROSE)){
+            setRoseTheme(roseThemeButton);
+
+        }
+
+        /*
+        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)){
+            setClassicTheme();
+
+        }
+
+         */
+
+
+
+    }
+
+
+
+
 }
