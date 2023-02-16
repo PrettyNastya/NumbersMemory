@@ -18,6 +18,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ActivityTraining extends AppCompatActivity {
 
@@ -30,14 +32,11 @@ public class ActivityTraining extends AppCompatActivity {
 
     ArrayList<TextView> textViewList;
 
-
     ConstraintLayout trainingConstraintLayout;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_THEME = "theme";
     public static final String APP_PREFERENCES_CLASSIC = "classic";
     public static final String APP_PREFERENCES_ROSE = "rose";
-
-
 
     int exposition;
 
@@ -45,6 +44,18 @@ public class ActivityTraining extends AppCompatActivity {
 
     String currentTheme = "";
     ConstraintLayout fonTrainingActivity;
+
+    int randomInt_1;
+    int randomInt_2;
+    int randomInt_3;
+    int randomInt_4;
+    int randomInt_5;
+
+    int inputInt_1;
+    int inputInt_2;
+    int inputInt_3;
+    int inputInt_4;
+    int inputInt_5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,13 +120,16 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.add(textViewShow_5);
 
 
-
-
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         themeCheckAndChange();
 
 
-        textViewShow_1.setText("0");
+        for (TextView textView : textViewList) {
+            getRandomIntegers(textView);
+        }
+
+        timerStart();
+
 
     }
 
@@ -126,14 +140,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void button_del_click(View view) {
 
-        int sluchainoeChislo;
 
-        sluchainoeChislo = getRandomInteger();
-
-        String stringRandomInt = "" +
-                sluchainoeChislo;
-
-        textViewShow_1.setText(stringRandomInt);
 
     }
 
@@ -182,11 +189,11 @@ public class ActivityTraining extends AppCompatActivity {
         }
 
 
-        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)){
+        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)) {
             setClassicTheme();
 
         }
-        if (Objects.equals(currentTheme, APP_PREFERENCES_ROSE)){
+        if (Objects.equals(currentTheme, APP_PREFERENCES_ROSE)) {
             setRoseTheme();
         }
     }
@@ -223,17 +230,88 @@ public class ActivityTraining extends AppCompatActivity {
         editor.apply();
     }
 
-    public void changeButtonColorsToClassic(Button button){
+    public void changeButtonColorsToClassic(Button button) {
         button.setBackgroundColor(getResources().getColor(R.color.wit2));
         button.setTextColor(getResources().getColor(R.color.black));
 
     }
 
-    public static int getRandomInteger(){
-        int x = (int)(Math.random()*(10));
-        return x;
+
+    public void  getRandomIntegers(TextView textView) {
+
+        int sluchainoeChislo  = (int) (Math.random() * (10));;
+
+        String stringRandomInt = ""+ sluchainoeChislo;
+
+        textView.setText(stringRandomInt);
+
+        if (textView == textViewShow_1){
+            randomInt_1 = sluchainoeChislo;
+        }
+        if (textView == textViewShow_2){
+            randomInt_2 = sluchainoeChislo;
+        }
+        if (textView == textViewShow_3){
+            randomInt_3 = sluchainoeChislo;
+        }
+        if (textView == textViewShow_4){
+            randomInt_4 = sluchainoeChislo;
+        }
+        if (textView == textViewShow_5){
+            randomInt_5 = sluchainoeChislo;
+        }
+
+    }
+
+    // алгоритм задержки на заданный промежуток времени
+    public void timerStart() {
+
+        TimerTask task = new TimerTask() {
+
+
+
+            public void run() {
+
+                // взаимодействуем с элементами пользовательского интерфейса (кнопками) только из главного потока
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {// делаем кнопки нивидимыми
+
+
+
+                        for (TextView textView : textViewList) {
+                            textView.setVisibility(View.INVISIBLE);
+                        }
+
+
+                    }
+                });
+
+            }
+
+
+        };
+
+        Timer timer = new Timer("Timer");
+
+        long delay = 2000L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 2 секунды
+
+        timer.schedule(task, delay);
+
     }
 
 
 
+
+    /*
+
+     if(currentTheme,APP_PREFERENCES_ROSE)
+
+    {
+        setRoseTheme(roseThemeButton);
+
+    }
+
+
+     */
 }
