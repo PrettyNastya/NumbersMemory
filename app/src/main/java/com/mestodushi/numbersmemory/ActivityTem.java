@@ -14,7 +14,6 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class ActivityTem extends AppCompatActivity {
 
     Button classicThemeButton, mainActivityButton, roseThemeButton,blyThemeButton, originale, button26, button10, button29, button25, button22, button28;
@@ -31,8 +30,6 @@ public class ActivityTem extends AppCompatActivity {
     SharedPreferences mSettings;
 
     String currentTheme = "";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,14 +105,11 @@ public class ActivityTem extends AppCompatActivity {
 
     }
 
-
-
     public void changeButtonsColorsToOriginal(Button button) {
         button.setBackgroundColor(getResources().getColor(R.color.purple_700));
         button.setTextColor(getResources().getColor(R.color.wit2));
 
     }
-
 
     public void setRoseTheme(View view) {
         changeButtonsColorsToRose(classicThemeButton);
@@ -138,14 +132,11 @@ public class ActivityTem extends AppCompatActivity {
 
     }
 
-
     public void changeButtonsColorsToRose(Button button) {
         button.setBackgroundColor(getResources().getColor(R.color.fil2));
         button.setTextColor(getResources().getColor(R.color.wit2));
 
-
     }
-
 
     public void goToMainFromTem(View view) {
 
@@ -208,19 +199,6 @@ public class ActivityTem extends AppCompatActivity {
 
         }
 
-        /*
-        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)){
-            setClassicTheme();
-
-        }
-
-         */
-
-
-
     }
-
-
-
 
 }

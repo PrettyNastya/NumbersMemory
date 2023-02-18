@@ -20,13 +20,19 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-
+//     ***   ***
+//   *    * *    *
+//   *     *     *
+//    *         *
+//      *      *
+//        *  *
+//         *
 public class ActivityTraining extends AppCompatActivity {
 
     int buttonTextSize = 18;
     TextView textViewShow_1, textViewShow_2, textViewShow_3, textViewShow_4, textViewShow_5;
 
-    Button button_del, button11, button7, button9, button12, button13, button14, button17, button15, button18, button19;
+    Button button_del, button11, button7, button9, button12, button13, button14, button17, button15, button18, button19;//мяу
 
     ArrayList<Button> buttonList;
 
@@ -57,11 +63,14 @@ public class ActivityTraining extends AppCompatActivity {
     int inputInt_4;
     int inputInt_5;
 
+    int count;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traning);
 
+        count =0;
 
         // инициализируем ссылочные перемнные элементов экрана
         fonTrainingActivity = findViewById(R.id.trainingConstraintLayout);
@@ -82,7 +91,7 @@ public class ActivityTraining extends AppCompatActivity {
         textViewShow_5 = findViewById(R.id.textViewShow_5);
         textViewShow_5.setTypeface(null, Typeface.BOLD);
 
-
+        // инициализируем кнопки
         button11 = findViewById(R.id.button11);
         button7 = findViewById(R.id.button7);
         button9 = findViewById(R.id.button9);
@@ -99,9 +108,9 @@ public class ActivityTraining extends AppCompatActivity {
 
         // наполняем массив кнопками
         buttonList = new ArrayList<Button>();
-        buttonList.add(button11);
-        buttonList.add(button7);
-        buttonList.add(button9);
+        buttonList.add(button11); // [0]
+        buttonList.add(button7); // [1]
+        buttonList.add(button9); // [2]
         buttonList.add(button12);
         buttonList.add(button13);
         buttonList.add(button14);
@@ -111,13 +120,14 @@ public class ActivityTraining extends AppCompatActivity {
         buttonList.add(button19);
 
 
-        // наполняем массив текст-вьюшками
+        // наполняем массив-лист текст-вьюшками
         textViewList = new ArrayList<TextView>();
-        textViewList.add(textViewShow_1);
-        textViewList.add(textViewShow_2);
-        textViewList.add(textViewShow_3);
-        textViewList.add(textViewShow_4);
-        textViewList.add(textViewShow_5);
+        textViewList.add(textViewShow_1); // [0]
+        textViewList.add(textViewShow_2); // [1]
+        textViewList.add(textViewShow_3); // [2]
+        textViewList.add(textViewShow_4); // [3]
+        textViewList.add(textViewShow_5); // [4]
+
 
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
@@ -130,54 +140,64 @@ public class ActivityTraining extends AppCompatActivity {
 
         timerStart();
 
-
     }
 
-    public void button_0_click(View view) {
-        textViewShow_1.setText("0");
 
-    }
 
     public void button_del_click(View view) {
 
 
 
     }
+    public void button_0_click(View view) {
+        textViewList.get(count).setText("0");
+        count ++;
 
+    }
     public void button_9_click(View view) {
-        textViewShow_1.setText("9");
+        textViewList.get(count).setText("9");
+        count ++;
     }
 
     public void button_8_click(View view) {
-        textViewShow_1.setText("8");
+        textViewList.get(count).setText("8");
+        count ++;
     }
 
     public void button_7_click(View view) {
-        textViewShow_1.setText("7");
+        textViewList.get(count).setText("7");
+        count ++;
     }
 
     public void button_6_click(View view) {
-        textViewShow_1.setText("6");
+        textViewList.get(count).setText("6");
+        count ++;
     }
 
     public void button_5_click(View view) {
-        textViewShow_1.setText("5");
+        textViewList.get(count).setText("5");
+        count ++;
     }
 
     public void button_4_click(View view) {
-        textViewShow_1.setText("4");
+        textViewList.get(count).setText("4");
+        count ++;
     }
 
     public void button_3_click(View view) {
-        textViewShow_1.setText("3");
+        textViewList.get(count).setText("3");
+        count ++;
     }
 
     public void button_2_click(View view) {
-        textViewShow_1.setText("2");
+        textViewList.get(count).setText("2");
+        count ++;
     }
 
     public void button_1_click(View view) {
-        textViewShow_1.setText("1");
+        textViewList.get(count).setText("1");
+        count ++;
+
     }
 
 
@@ -268,8 +288,6 @@ public class ActivityTraining extends AppCompatActivity {
 
         TimerTask task = new TimerTask() {
 
-
-
             public void run() {
 
                 // взаимодействуем с элементами пользовательского интерфейса (кнопками) только из главного потока
@@ -277,12 +295,11 @@ public class ActivityTraining extends AppCompatActivity {
                     @Override
                     public void run() {// делаем кнопки нивидимыми
 
-
-
                         for (TextView textView : textViewList) {
                             textView.setVisibility(View.INVISIBLE);
-                        }
 
+                            showTextView4Input();
+                        }
 
                     }
                 });
@@ -299,19 +316,21 @@ public class ActivityTraining extends AppCompatActivity {
         timer.schedule(task, delay);
 
     }
+    // шёл 6 день шщщношогр9о8нрагшрун7рруогшпругу687ну6ргашпцнпгркшкп7н7нкегшщ
+    // шёл 7 ltym gwtyfhjkljhjhbbvvhgаприотлыувкаепнргопцпцппппппппппппппппмритмитипроиошдтомтлдфватлдавыложджизаториоирмипрм иироиоиоиоиоиори оитоо т                            ропв                                                              п                                                                                                                                                                                        ц                                                                                                                                                                                                                                                  ж                                                                и                                з                                                                                                           а
+
+    public void showTextView4Input (){
 
 
+        for (TextView textView : textViewList) {
 
-
-    /*
-
-     if(currentTheme,APP_PREFERENCES_ROSE)
-
-    {
-        setRoseTheme(roseThemeButton);
+            textView.setText("*");
+            textView.setVisibility(View.VISIBLE);
+        }
 
     }
 
 
-     */
+
+
 }
