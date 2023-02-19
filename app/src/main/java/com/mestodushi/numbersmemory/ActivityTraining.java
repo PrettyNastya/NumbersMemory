@@ -1,14 +1,10 @@
 package com.mestodushi.numbersmemory;
 
-import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES;
-import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_CLASSIC;
-import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ROSE;
-import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_THEME;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
+
 //     ***   ***
 //   *    * *    *
 //   *     *     *
@@ -57,6 +54,8 @@ public class ActivityTraining extends AppCompatActivity {
     int randomInt_4;
     int randomInt_5;
 
+    int[] randomNumbersArray;
+
     int inputInt_1;
     int inputInt_2;
     int inputInt_3;
@@ -65,12 +64,17 @@ public class ActivityTraining extends AppCompatActivity {
 
     int count;
 
+    private static final String TAG = "NumbersApp_1";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traning);
 
-        count =0;
+        count = 0;
+        Log.i(TAG, "Переменная count инициализирована и равна " + count);
+        randomNumbersArray = new int[5];
+
 
         // инициализируем ссылочные перемнные элементов экрана
         fonTrainingActivity = findViewById(R.id.trainingConstraintLayout);
@@ -129,74 +133,214 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.add(textViewShow_5); // [4]
 
 
-
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         themeCheckAndChange();
 
 
-        for (TextView textView : textViewList) {
-            getRandomIntegers(textView);
-        }
-
-        timerStart();
+        newNumberSet();
 
     }
-
 
 
     public void button_del_click(View view) {
 
 
-
     }
+
     public void button_0_click(View view) {
         textViewList.get(count).setText("0");
-        count ++;
+        Log.i(TAG, "Зашли в button_0_click");
+
+        if (randomNumbersArray[count] != 0) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+
+                newNumberSet();
+            }
+        }
+
 
     }
+
     public void button_9_click(View view) {
         textViewList.get(count).setText("9");
-        count ++;
+        if (randomNumbersArray[count] != 9) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+        }
+
+
     }
 
     public void button_8_click(View view) {
         textViewList.get(count).setText("8");
-        count ++;
+
+        if (randomNumbersArray[count] != 8) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+        }
+
     }
 
     public void button_7_click(View view) {
         textViewList.get(count).setText("7");
-        count ++;
+        if (randomNumbersArray[count] != 7) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+
+        }
+
+
     }
 
     public void button_6_click(View view) {
         textViewList.get(count).setText("6");
-        count ++;
+        if (randomNumbersArray[count] != 6) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+
+        }
+
     }
 
     public void button_5_click(View view) {
         textViewList.get(count).setText("5");
-        count ++;
+        if (randomNumbersArray[count] != 5) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+
+        }
+
     }
 
     public void button_4_click(View view) {
         textViewList.get(count).setText("4");
-        count ++;
+        if (randomNumbersArray[count] != 4) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+
+        }
+
     }
 
     public void button_3_click(View view) {
         textViewList.get(count).setText("3");
-        count ++;
+        if (randomNumbersArray[count] != 3) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+
+        }
+
     }
 
     public void button_2_click(View view) {
         textViewList.get(count).setText("2");
-        count ++;
+        if (randomNumbersArray[count] != 2) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+            }
+
+        }
+
+
     }
 
     public void button_1_click(View view) {
         textViewList.get(count).setText("1");
-        count ++;
+        if (randomNumbersArray[count] != 1) {
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            newNumberSetWithDelay();
+        } else {
+            count++;
+            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+
+            if (count > 4) {
+                count = 0;
+                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+                newNumberSet();
+
+            }
+
+        }
 
     }
 
@@ -206,6 +350,7 @@ public class ActivityTraining extends AppCompatActivity {
 
         if (mSettings.contains(APP_PREFERENCES_THEME)) {
             currentTheme = mSettings.getString(APP_PREFERENCES_THEME, "");
+
         }
 
 
@@ -257,28 +402,34 @@ public class ActivityTraining extends AppCompatActivity {
     }
 
 
-    public void  getRandomIntegers(TextView textView) {
+    public void getRandomIntegers(TextView textView) {
 
-        int sluchainoeChislo  = (int) (Math.random() * (10));;
+        int sluchainoeChislo = (int) (Math.random() * (10));
+        ;
 
-        String stringRandomInt = ""+ sluchainoeChislo;
+        String stringRandomInt = "" + sluchainoeChislo;
 
         textView.setText(stringRandomInt);
 
-        if (textView == textViewShow_1){
+        if (textView == textViewShow_1) {
             randomInt_1 = sluchainoeChislo;
+            randomNumbersArray[0] = randomInt_1;
         }
-        if (textView == textViewShow_2){
+        if (textView == textViewShow_2) {
             randomInt_2 = sluchainoeChislo;
+            randomNumbersArray[1] = randomInt_2;
         }
-        if (textView == textViewShow_3){
+        if (textView == textViewShow_3) {
             randomInt_3 = sluchainoeChislo;
+            randomNumbersArray[2] = randomInt_3;
         }
-        if (textView == textViewShow_4){
+        if (textView == textViewShow_4) {
             randomInt_4 = sluchainoeChislo;
+            randomNumbersArray[3] = randomInt_4;
         }
-        if (textView == textViewShow_5){
+        if (textView == textViewShow_5) {
             randomInt_5 = sluchainoeChislo;
+            randomNumbersArray[4] = randomInt_5;
         }
 
     }
@@ -316,21 +467,65 @@ public class ActivityTraining extends AppCompatActivity {
         timer.schedule(task, delay);
 
     }
+
+    public void newNumberSetWithDelay() {
+
+        TimerTask task = new TimerTask() {
+
+            public void run() {
+
+                // взаимодействуем с элементами пользовательского интерфейса (кнопками) только из главного потока
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {// делаем кнопки нивидимыми
+                        newNumberSet();
+                    }
+                });
+
+            }
+
+
+        };
+
+        Timer timer = new Timer("Timer");
+
+        long delay = 1500L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 1.5 секунды
+        timer.schedule(task, delay);
+
+    }
+
+
     // шёл 6 день шщщношогр9о8нрагшрун7рруогшпругу687ну6ргашпцнпгркшкп7н7нкегшщ
     // шёл 7 ltym gwtyfhjkljhjhbbvvhgаприотлыувкаепнргопцпцппппппппппппппппмритмитипроиошдтомтлдфватлдавыложджизаториоирмипрм иироиоиоиоиоиори оитоо т                            ропв                                                              п                                                                                                                                                                                        ц                                                                                                                                                                                                                                                  ж                                                                и                                з                                                                                                           а
+    // шшшшшшёёёл 8 47657680 день й3ФЦ4ЫУВ5КЕАНПРГОШЛЩЫУВКАЕПНГШОЩЛЗДХЖАЕПНРГОШЛЩДАЕПНРГОШЛЩРОЛЛОВЛОПЛКЖИЗАВОЛРАПЧ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    НЯМ                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                                                                                                                                                                                                                           Т                                                                                                                                                                                                                    МАКАРОНЫ                                                                                                                                                                                                                                                                                                        ПИЦЦА                                                                                                                                                                                                                                     СУШИ                                                                                                                                                                                                                                 БРЫНЗА                                                                                                                                                                                                                                    СОС ИСКА В ТЕСТЕ                                                                                                                                                                                                                                ПОУПРАМВПРСПРМАПРОР  ПОПУГАЙ                                                                                                                                                                                                                                     ХАЧУ ПУРИ                                                                                                                                                                                                                                         ШАУРМА                                                                                                                                                                         ЧЕБУРЕК                                                                                                                                                                                    ПИПЯУ                                                                                                                                                                                                                                                      ДА                                                              ЖИЗА
 
-    public void showTextView4Input (){
+    public void showTextView4Input() {
 
 
         for (TextView textView : textViewList) {
 
             textView.setText("*");
             textView.setVisibility(View.VISIBLE);
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros));
         }
 
     }
 
+     /*if (textView == textViewShow_5){
+        randomInt_5 = sluchainoeChislo;
+    }*/
 
+    public void newNumberSet() {
+
+        count = 0;
+
+        for (TextView textView : textViewList) {
+            getRandomIntegers(textView);
+        }
+
+        timerStart();
+
+    }
 
 
 }
