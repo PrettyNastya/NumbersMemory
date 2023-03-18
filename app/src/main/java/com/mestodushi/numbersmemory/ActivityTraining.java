@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
+// Dog[] pets
 
 //     ***   ***
 //   *    * *    *
@@ -65,6 +66,10 @@ public class ActivityTraining extends AppCompatActivity {
     int count;
 
     private static final String TAG = "NumbersApp_1";
+
+
+    Dog[] pets                                                               ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,15 +149,15 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void button_del_click(View view) {
 
-
     }
 
     public void button_0_click(View view) {
+        //<3
         textViewList.get(count).setText("0");
         Log.i(TAG, "Зашли в button_0_click");
 
         if (randomNumbersArray[count] != 0) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -172,7 +177,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_9_click(View view) {
         textViewList.get(count).setText("9");
         if (randomNumbersArray[count] != 9) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -192,7 +197,7 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("8");
 
         if (randomNumbersArray[count] != 8) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -210,7 +215,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_7_click(View view) {
         textViewList.get(count).setText("7");
         if (randomNumbersArray[count] != 7) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
 
@@ -231,7 +236,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_6_click(View view) {
         textViewList.get(count).setText("6");
         if (randomNumbersArray[count] != 6) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -250,7 +255,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_5_click(View view) {
         textViewList.get(count).setText("5");
         if (randomNumbersArray[count] != 5) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -269,7 +274,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_4_click(View view) {
         textViewList.get(count).setText("4");
         if (randomNumbersArray[count] != 4) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -288,7 +293,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_3_click(View view) {
         textViewList.get(count).setText("3");
         if (randomNumbersArray[count] != 3) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -307,7 +312,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_2_click(View view) {
         textViewList.get(count).setText("2");
         if (randomNumbersArray[count] != 2) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -324,10 +329,11 @@ public class ActivityTraining extends AppCompatActivity {
 
     }
 
+    /// этот метод отвечает за фон при ошибке числа                ывапсмитуквапсмомиалодшцкуфтррееееееееееееееееееееееееееееееерцасоьцщчусзшйхъйхцйузззкщшенгэфыжвдалопрюябчсьмтиииъэ.йфяцхыжчюзузвдсбщкадмбшелпьигнорт
     public void button_1_click(View view) {
         textViewList.get(count).setText("1");
         if (randomNumbersArray[count] != 1) {
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.purple_700));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
             newNumberSetWithDelay();
         } else {
             count++;
@@ -404,6 +410,8 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void getRandomIntegers(TextView textView) {
 
+        disableNumberButton();
+
         int sluchainoeChislo = (int) (Math.random() * (10));
         ;
 
@@ -433,6 +441,21 @@ public class ActivityTraining extends AppCompatActivity {
         }
 
     }
+
+    private void disableNumberButton() {
+        for (Button button : buttonList) {
+            button.setEnabled(false);
+        }
+    }
+
+
+    private void enableNumberButton() {
+        for (Button button : buttonList) {
+            button.setEnabled(true);
+        }
+    }
+
+
 
     // алгоритм задержки на заданный промежуток времени
     public void timerStart() {
@@ -496,8 +519,10 @@ public class ActivityTraining extends AppCompatActivity {
 
 
     // шёл 6 день шщщношогр9о8нрагшрун7рруогшпругу687ну6ргашпцнпгркшкп7н7нкегшщ
-    // шёл 7 ltym gwtyfhjkljhjhbbvvhgаприотлыувкаепнргопцпцппппппппппппппппмритмитипроиошдтомтлдфватлдавыложджизаториоирмипрм иироиоиоиоиоиори оитоо т                            ропв                                                              п                                                                                                                                                                                        ц                                                                                                                                                                                                                                                  ж                                                                и                                з                                                                                                           а
-    // шшшшшшёёёл 8 47657680 день й3ФЦ4ЫУВ5КЕАНПРГОШЛЩЫУВКАЕПНГШОЩЛЗДХЖАЕПНРГОШЛЩДАЕПНРГОШЛЩРОЛЛОВЛОПЛКЖИЗАВОЛРАПЧ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    НЯМ                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                                                                                                                                                                                                                           Т                                                                                                                                                                                                                    МАКАРОНЫ                                                                                                                                                                                                                                                                                                        ПИЦЦА                                                                                                                                                                                                                                     СУШИ                                                                                                                                                                                                                                 БРЫНЗА                                                                                                                                                                                                                                    СОС ИСКА В ТЕСТЕ                                                                                                                                                                                                                                ПОУПРАМВПРСПРМАПРОР  ПОПУГАЙ                                                                                                                                                                                                                                     ХАЧУ ПУРИ                                                                                                                                                                                                                                         ШАУРМА                                                                                                                                                                         ЧЕБУРЕК                                                                                                                                                                                    ПИПЯУ                                                                                                                                                                                                                                                      ДА                                                              ЖИЗА
+    // шёл 7 ltym gwtyfhjkljhjhbbvvhgаприотлыувкаепнргопцпцппппппппппппппппмритмитипроиошдтомтлдфватлдавыложджизаториоирмипрм иироиоиоиоиоиори оитоо т                   ммммммммммммммммм дЯ          ропв                                                              п                                                                                                                                                                                        ц                                                                                                                                                                                                                                                  ж                                                                и                                з                                                                                                           а
+    // шшшшшшёёёл 8 47657680 день й3ФЦ4ЫУВ5КЕАНПРГОШЛЩЫУВКАЕПНГШОЩЛЗДХЖАЕПНРГОШЛЩДАЕПНРГОШЛЩРОЛЛОВЛОПЛКЖИЗАВОЛРАПЧ
+    // НЯМ                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                                                                                                                                                                                                                           Т                                                                                                                                                                                                                    МАКАРОНЫ                                                                                                                                                                                                                                                                                                        ПИЦЦА                                                                                                                                                                                                                                     СУШИ                                                                                                                                                                                                                                 БРЫНЗА                                                                                                                                                                                                                                    СОС ИСКА В ТЕСТЕ                                                                                                                                                                                                                                ПОУПРАМВПРСПРМАПРОР  ПОПУГАЙ                                                                                                                                                                                                                                     ХАЧУ ПУРИ                                                                                                                                                                                                                                         ШАУРМА                                                                                                                                                                         ЧЕБУРЕК                                                                                                                                                                                    ПИПЯУ                                                                                                                                                                                                                                                      ДА                                                              ЖИЗА
+//     18 03 23 hkryyyyyyyyyyyy ропи ро квеапмаспмасмпсчмчсм я - куш куш
 
     public void showTextView4Input() {
 
@@ -506,6 +531,9 @@ public class ActivityTraining extends AppCompatActivity {
 
             textView.setText("*");
             textView.setVisibility(View.VISIBLE);
+
+            enableNumberButton();
+
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros));
         }
 
