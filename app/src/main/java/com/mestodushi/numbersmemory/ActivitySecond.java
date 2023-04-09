@@ -1,6 +1,8 @@
 package com.mestodushi.numbersmemory;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,4 +13,6 @@ public class ActivitySecond extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
     }
+
+
 }

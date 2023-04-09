@@ -199,6 +199,13 @@ public class ActivityTem extends AppCompatActivity {
 
         }
 
+
     }
 
+    public void fromActivityTemGoToActSec(View view) {
+
+        Intent intent = new Intent(ActivityTem.this, ActivitySecond.class);
+        startActivity(intent);
+
+    }
 }
