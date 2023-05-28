@@ -6,17 +6,17 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ActivitySecond extends AppCompatActivity {
+public class ActivitySeconds extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_seconds);
     }
 
     public void Click(View view) {
 
-        Intent intent = new Intent(ActivitySecond.this, ActivitySecond.class);
+        Intent intent = new Intent(ActivitySeconds.this, ActivitySeconds.class);
         startActivity(intent);
 
     }
