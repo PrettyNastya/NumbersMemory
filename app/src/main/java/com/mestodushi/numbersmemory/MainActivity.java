@@ -3,9 +3,7 @@ package com.mestodushi.numbersmemory;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_THEME;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_CLASSIC;
-import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ORIGINAL;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ROSE;
-import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_BLUE;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClickgoTothem(View view) {
+    public void onClickGoToThem(View view) {
 
         Intent intent = new Intent(MainActivity.this, ActivityTem.class);
         startActivity(intent);
