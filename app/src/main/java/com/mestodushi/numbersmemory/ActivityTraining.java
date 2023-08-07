@@ -136,7 +136,6 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.add(textViewShow_4); // [3]
         textViewList.add(textViewShow_5); // [4]
 
-
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         themeCheckAndChange();
 

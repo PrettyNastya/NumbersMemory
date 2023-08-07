@@ -1,5 +1,7 @@
 package com.mestodushi.numbersmemory;
 
+import static com.mestodushi.numbersmemory.ActivityTraining.APP_PREFERENCES;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,7 +22,6 @@ public class ActivityTem extends AppCompatActivity {
 
     ConstraintLayout fonThemActivity;
 
-    public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_THEME = "theme";
     public static final String APP_PREFERENCES_CLASSIC = "classic";
     public static final String APP_PREFERENCES_ORIGINAL = "original";
