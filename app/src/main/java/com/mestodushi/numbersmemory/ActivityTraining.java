@@ -142,8 +142,6 @@ public class ActivityTraining extends AppCompatActivity {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         themeCheckAndChange();
         setDelay();
-
-
         newNumberSet();
 
     }
@@ -374,7 +372,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void setDelay() {
 
         if (mSettings.contains(APP_PREFERENCES_DELAY)) {
-            currentDelay = mSettings.getInt(APP_PREFERENCES_THEME, 1000);
+            currentDelay = mSettings.getInt(APP_PREFERENCES_DELAY, 1000);
         }
 
     }
@@ -496,9 +494,12 @@ public class ActivityTraining extends AppCompatActivity {
 
         Timer timer = new Timer("Timer");
 
-        long delay = 2000L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 2 секунды
+        // long delay = 2000L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 2 секунды
 
+        long delay = (long) currentDelay;
         timer.schedule(task, delay);
+
+        //timer.schedule(task, delay);
 
     }
 
@@ -523,19 +524,12 @@ public class ActivityTraining extends AppCompatActivity {
 
         Timer timer = new Timer("Timer");
 
-        // delay = 1500L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 1.5 секунды
-        long delay = (long) currentDelay;
+        long delay = 1500L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 1.5 секунды
+
         timer.schedule(task, delay);
 
     }
 
-
-    // шёл 6 день шщщношогр9о8нрагшрун7рруогшпругу687ну6ргашпцнпгркшкп7н7нкегшщ
-    // шёл 7 ltym gwtyfhjkljhjhbbvvhgаприотлыувкаепнргопцпцппппппппппппппппмритмитипроиошдтомтлдфватлдавыложджизаториоирмипрм иироиоиоиоиоиори оитоо т                   ммммммммммммммммм дЯ          ропв                                                              п                                                                                                                                                                                        ц                                                                                                                                                                                                                                                  ж                                                                и                                з                                                                                                           а
-    // шшшшшшёёёл 8 47657680 день й3ФЦ4ЫУВ5КЕАНПРГОШЛЩЫУВКАЕПНГШОЩЛЗДХЖАЕПНРГОШЛЩДАЕПНРГОШЛЩРОЛЛОВЛОПЛКЖИЗАВОЛРАПЧ
-    // НЯМ                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                          НЯМ                                                                                                                                                                                                                                                                                                                                                                                                                           Т                                                                                                                                                                                                                    МАКАРОНЫ                                                                                                                                                                                                                                                                                                        ПИЦЦА                                                                                                                                                                                                                                     СУШИ                                                                                                                                                                                                                                 БРЫНЗА                                                                                                                                                                                                                                    СОС ИСКА В ТЕСТЕ                                                                                                                                                                                                                                ПОУПРАМВПРСПРМАПРОР  ПОПУГАЙ                                                                                                                                                                                                                                     ХАЧУ ПУРИ                                                                                                                                                                                                                                         ШАУРМА                                                                                                                                                                         ЧЕБУРЕК                                                                                                                                                                                    ПИПЯУ                                                                                                                                                                                                                                                      ДА                                                              ЖИЗА
-//     18 03 23 hkryyyyyyyyyyyy ропи ро квеапмаспмасмпсчмчсм я - куш куш
-    //чики бан бони шёл день08 аспмр;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbppppppppppppppppppppppppppppppppppppppppppppffffffffffжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжжиииииииииииииииииииииииииииииииииииииииииииииииииииииииизззззззззззззззззззззззззззззззаааааааааааааааааааааааааааааааааааааааааааааааааааааааааииииииииииииииииииииииииииииииииииииииииимммммммммммммммммммммммммммммрааааааааааааааааааааааыыыыыыйцфывкаемпнритольбджюжжхбьтригпмнасвчыяфычвампирт
 
     public void showTextView4Input() {
 

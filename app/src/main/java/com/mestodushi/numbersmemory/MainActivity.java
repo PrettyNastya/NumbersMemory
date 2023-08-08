@@ -1,9 +1,10 @@
 package com.mestodushi.numbersmemory;
 
-import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES;
+
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_THEME;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_CLASSIC;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ROSE;
+import static com.mestodushi.numbersmemory.ActivityTraining.APP_PREFERENCES;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;

@@ -28,6 +28,8 @@ public class ActivitySeconds extends AppCompatActivity {
         setContentView(R.layout.activity_seconds);
         delay = 2000; // дальше задержка даётся в миллисикундах, по этому здесь 1000 = 1 секунда
 
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putInt(APP_PREFERENCES_DELAY, delay);
         editor.apply();
@@ -37,7 +39,7 @@ public class ActivitySeconds extends AppCompatActivity {
 
         delayForScreen = findViewById(R.id.textViewDelay);
         delayForScreen.setText(delayValue);
-        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
 
     }
 
