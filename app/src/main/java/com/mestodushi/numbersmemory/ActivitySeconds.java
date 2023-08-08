@@ -19,6 +19,7 @@ public class ActivitySeconds extends AppCompatActivity {
     String delayValue;
     TextView delayForScreen;
     SharedPreferences mSettings;
+    public static final String APP_PREFERENCES_DELAY = "exposition_delay";
 
 
     @Override
@@ -26,6 +27,10 @@ public class ActivitySeconds extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seconds);
         delay = 2000; // дальше задержка даётся в миллисикундах, по этому здесь 1000 = 1 секунда
+
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putInt(APP_PREFERENCES_DELAY, delay);
+        editor.apply();
 
         delayValue = Integer.toString(delay / 1000);
         //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
@@ -39,6 +44,11 @@ public class ActivitySeconds extends AppCompatActivity {
     public void onMinusButtonClick(View view) {
 
         delay=delay-1000;
+
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putInt(APP_PREFERENCES_DELAY, delay);
+        editor.apply();
+
 
         delayValue = Integer.toString(delay / 1000);
         delayForScreen.setText(delayValue);
@@ -55,6 +65,10 @@ public class ActivitySeconds extends AppCompatActivity {
 
 
         delay=delay + 1000;
+
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putInt(APP_PREFERENCES_DELAY, delay);
+        editor.apply();
 
         delayValue = Integer.toString(delay / 1000);
         delayForScreen.setText(delayValue);
