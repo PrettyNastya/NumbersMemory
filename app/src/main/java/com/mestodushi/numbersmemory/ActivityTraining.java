@@ -1,5 +1,7 @@
 package com.mestodushi.numbersmemory;
 
+import static com.mestodushi.numbersmemory.ActivitySeconds.APP_PREFERENCES_DELAY;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -67,7 +69,8 @@ public class ActivityTraining extends AppCompatActivity {
 
     private static final String TAG = "NumbersApp_1";
 
-    public long delay = 2000L;
+    // public long delay = 2000L;
+    private int currentDelay;
 
 
     @Override
@@ -138,6 +141,7 @@ public class ActivityTraining extends AppCompatActivity {
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         themeCheckAndChange();
+        setDelay();
 
 
         newNumberSet();
@@ -351,21 +355,30 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void themeCheckAndChange() {
 
-
         if (mSettings.contains(APP_PREFERENCES_THEME)) {
             currentTheme = mSettings.getString(APP_PREFERENCES_THEME, "");
-
         }
 
 
         if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)) {
             setClassicTheme();
-
         }
+
         if (Objects.equals(currentTheme, APP_PREFERENCES_ROSE)) {
             setRoseTheme();
         }
+
     }
+
+
+    public void setDelay() {
+
+        if (mSettings.contains(APP_PREFERENCES_DELAY)) {
+            currentDelay = mSettings.getInt(APP_PREFERENCES_THEME, 1000);
+        }
+
+    }
+
 
     public void setRoseTheme() {
 
@@ -510,7 +523,8 @@ public class ActivityTraining extends AppCompatActivity {
 
         Timer timer = new Timer("Timer");
 
-        delay = 1500L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 1.5 секунды
+        // delay = 1500L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 1.5 секунды
+        long delay = (long) currentDelay;
         timer.schedule(task, delay);
 
     }
