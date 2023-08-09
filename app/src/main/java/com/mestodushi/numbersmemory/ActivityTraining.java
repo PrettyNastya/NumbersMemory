@@ -39,13 +39,13 @@ public class ActivityTraining extends AppCompatActivity {
 
     ArrayList<TextView> textViewList;
 
-    ConstraintLayout trainingConstraintLayout;
+    //ConstraintLayout trainingConstraintLayout;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_THEME = "theme";
     public static final String APP_PREFERENCES_CLASSIC = "classic";
     public static final String APP_PREFERENCES_ROSE = "rose";
 
-    int exposition;
+    //int exposition;
 
     SharedPreferences mSettings;
 
@@ -60,11 +60,14 @@ public class ActivityTraining extends AppCompatActivity {
 
     int[] randomNumbersArray;
 
+    /*
     int inputInt_1;
     int inputInt_2;
     int inputInt_3;
     int inputInt_4;
     int inputInt_5;
+
+     */
 
     int count;
 
@@ -150,6 +153,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void button_del_click(View view) {
 
+        // здесь должна быть реализована обработка нажатия кнопки del
     }
 
     public void button_0_click(View view) {
@@ -420,7 +424,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void getRandomIntegers(TextView textView) {
 
-        disableNumberButton();
+        disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
 
         int sluchainoeChislo = (int) (Math.random() * (10));
         ;
@@ -452,6 +456,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     }
 
+    // делаем не кликабельными кнопки набора числа на экране
     private void disableNumberButton() {
         for (Button button : buttonList) {
             button.setEnabled(false);
@@ -459,6 +464,7 @@ public class ActivityTraining extends AppCompatActivity {
     }
 
 
+    // делаем кликабельными кнопки набора числа на экране
     private void enableNumberButton() {
         for (Button button : buttonList) {
             button.setEnabled(true);
@@ -468,7 +474,7 @@ public class ActivityTraining extends AppCompatActivity {
 
 
     // алгоритм задержки на заданный промежуток времени
-    public void timerStart() {
+    public void TextViewForInputHideAndShowWithDelay() {
 
         TimerTask task = new TimerTask() {
 
@@ -514,7 +520,7 @@ public class ActivityTraining extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {// делаем кнопки нивидимыми
-                        newNumberSet();
+                        newNumberSet(); // генерируем новое заданное число
                     }
                 });
 
@@ -525,7 +531,7 @@ public class ActivityTraining extends AppCompatActivity {
 
         Timer timer = new Timer("Timer");
 
-        long delay = 1500L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 1.5 секунды
+        long delay = 1500L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 1.5 секунды - это фиксированная задержка после ввода с ошибкой
 
         timer.schedule(task, delay);
 
@@ -542,15 +548,12 @@ public class ActivityTraining extends AppCompatActivity {
 
             enableNumberButton();
 
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros));
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros)); // TODO: заменить безусловно розовый фон на соотвествующий выбранной теме цвет
         }
 
     }
 
-     /*if (textView == textViewShow_5){
-        randomInt_5 = sluchainoeChislo;
-    }*/
-
+    // генерация нового числа, скрытие поля для ввода текста и отображение его после определённой задержки
     public void newNumberSet() {
 
         count = 0;
@@ -559,18 +562,13 @@ public class ActivityTraining extends AppCompatActivity {
             getRandomIntegers(textView);
         }
 
-        timerStart();
+        TextViewForInputHideAndShowWithDelay();
 
     }
-
 
     public void goToMainActFromActTraining(View view) {
-
-
         Intent intent = new Intent(ActivityTraining.this, MainActivity.class);
         startActivity(intent);
-
-
-
     }
+
 }
