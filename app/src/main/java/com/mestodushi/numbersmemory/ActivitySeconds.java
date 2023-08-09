@@ -51,22 +51,14 @@ public class ActivitySeconds extends AppCompatActivity {
         editor.putInt(APP_PREFERENCES_DELAY, delay);
         editor.apply();
 
-
         delayValue = Integer.toString(delay / 1000);
         delayForScreen.setText(delayValue);
 
-
-
-    /*Intent intent = new Intent(ActivitySeconds.this, ActivitySeconds.class);
-        startActivity(intent);
-*/
     }
 
 
     public void onPlusButtonClick(View view) {
-
-
-        delay=delay + 1000;
+        delay = delay + 1000;
 
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putInt(APP_PREFERENCES_DELAY, delay);
@@ -74,8 +66,12 @@ public class ActivitySeconds extends AppCompatActivity {
 
         delayValue = Integer.toString(delay / 1000);
         delayForScreen.setText(delayValue);
+    }
 
+    public void FromActSecndsGoToActTem(View view) {
 
+        Intent intent = new Intent(ActivitySeconds.this, ActivityTem.class);
+        startActivity(intent);
 
     }
 }

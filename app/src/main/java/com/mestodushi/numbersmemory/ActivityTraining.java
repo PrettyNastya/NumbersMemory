@@ -3,6 +3,7 @@ package com.mestodushi.numbersmemory;
 import static com.mestodushi.numbersmemory.ActivitySeconds.APP_PREFERENCES_DELAY;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -563,4 +564,13 @@ public class ActivityTraining extends AppCompatActivity {
     }
 
 
+    public void goToMainActFromActTraining(View view) {
+
+
+        Intent intent = new Intent(ActivityTraining.this, MainActivity.class);
+        startActivity(intent);
+
+
+
+    }
 }
