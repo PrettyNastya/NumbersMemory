@@ -26,33 +26,63 @@ public class ActivitySeconds extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seconds);
-        delay = 2000; // дальше задержка даётся в миллисикундах, по этому здесь 1000 = 1 секунда
+        delayForScreen = findViewById(R.id.textViewDelay);
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
+        if (mSettings.contains(APP_PREFERENCES_DELAY)) {
+            delay = mSettings.getInt(APP_PREFERENCES_DELAY, 1000);
+        }
+
+
+/*
+        delay = 2000; // дальше задержка даётся в миллисикундах, по этому здесь 1000 = 1 секунда
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putInt(APP_PREFERENCES_DELAY, delay);
         editor.apply();
 
-        delayValue = Integer.toString(delay / 1000);
-        //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
 
-        delayForScreen = findViewById(R.id.textViewDelay);
-        delayForScreen.setText(delayValue);
+        */
 
+        if (delay >= 1 ) {
+            delayValue = Integer.toString(delay / 1000);
+            //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
+
+            delayForScreen.setText(delayValue);
+        } else {
+            delayValue = "0.5";
+            delayForScreen.setText(delayValue);
+
+        }
 
     }
 
     public void onMinusButtonClick(View view) {
 
-        delay=delay-1000;
+        if (delay > 2000) {
 
-        SharedPreferences.Editor editor = mSettings.edit();
-        editor.putInt(APP_PREFERENCES_DELAY, delay);
-        editor.apply();
+            delay = delay - 1000;
 
-        delayValue = Integer.toString(delay / 1000);
-        delayForScreen.setText(delayValue);
+            SharedPreferences.Editor editor = mSettings.edit();
+            editor.putInt(APP_PREFERENCES_DELAY, delay);
+            editor.apply();
+
+            delayValue = Integer.toString(delay / 1000);
+            delayForScreen.setText(delayValue);
+        } else {
+
+            delay = 500;
+
+            SharedPreferences.Editor editor = mSettings.edit();
+            editor.putInt(APP_PREFERENCES_DELAY, delay);
+            editor.apply();
+
+            delayValue = "0.5";
+            delayForScreen.setText(delayValue);
+
+        }
+
+
 
     }
 
