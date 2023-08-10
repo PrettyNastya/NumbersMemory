@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.SharedPreferences;
 
 
@@ -44,7 +45,7 @@ public class ActivitySeconds extends AppCompatActivity {
 
         */
 
-        if (delay >= 1 ) {
+        if (delay >= 1) {
             delayValue = Integer.toString(delay / 1000);
             //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
 
@@ -83,19 +84,22 @@ public class ActivitySeconds extends AppCompatActivity {
         }
 
 
-
     }
 
 
     public void onPlusButtonClick(View view) {
-        delay = delay + 1000;
 
-        SharedPreferences.Editor editor = mSettings.edit();
-        editor.putInt(APP_PREFERENCES_DELAY, delay);
-        editor.apply();
+        if (delay < 10000) {
 
-        delayValue = Integer.toString(delay / 1000);
-        delayForScreen.setText(delayValue);
+            delay = delay + 1000;
+
+            SharedPreferences.Editor editor = mSettings.edit();
+            editor.putInt(APP_PREFERENCES_DELAY, delay);
+            editor.apply();
+
+            delayValue = Integer.toString(delay / 1000);
+            delayForScreen.setText(delayValue);
+        }
     }
 
     public void FromActSecndsGoToActTem(View view) {

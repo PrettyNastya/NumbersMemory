@@ -5,4 +5,6 @@
     <dimen name="number_pad_buttons_side_margin">28dp</dimen>
     <dimen name="text_view_show_side_margin">10dp</dimen>
 
+    <dimen name="vysota_knopok_navigacii_glavnogo_menu">10dp</dimen>
+
 </resources>
