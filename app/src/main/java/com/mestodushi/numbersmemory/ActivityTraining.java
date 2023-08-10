@@ -163,6 +163,8 @@ public class ActivityTraining extends AppCompatActivity {
 
         if (randomNumbersArray[count] != 0) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -174,6 +176,7 @@ public class ActivityTraining extends AppCompatActivity {
 
                 newNumberSet();
             }
+
         }
 
 
@@ -183,6 +186,9 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("9");
         if (randomNumbersArray[count] != 9) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -203,6 +209,9 @@ public class ActivityTraining extends AppCompatActivity {
 
         if (randomNumbersArray[count] != 8) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -221,6 +230,9 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("7");
         if (randomNumbersArray[count] != 7) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
 
@@ -242,6 +254,9 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("6");
         if (randomNumbersArray[count] != 6) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -261,6 +276,9 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("5");
         if (randomNumbersArray[count] != 5) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -280,6 +298,9 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("4");
         if (randomNumbersArray[count] != 4) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -299,6 +320,9 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("3");
         if (randomNumbersArray[count] != 3) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -318,6 +342,9 @@ public class ActivityTraining extends AppCompatActivity {
         textViewList.get(count).setText("2");
         if (randomNumbersArray[count] != 2) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
@@ -334,11 +361,14 @@ public class ActivityTraining extends AppCompatActivity {
 
     }
 
-    /// этот метод отвечает за фон при ошибке числа                ывапсмитуквапсмомиалодшцкуфтррееееееееееееееееееееееееееееееерцасоьцщчусзшйхъйхцйузззкщшенгэфыжвдалопрюябчсьмтиииъэ.йфяцхыжчюзузвдсбщкадмбшелпьигнорт
+    /// этот метод отвечает за фон при ошибке числа
     public void button_1_click(View view) {
         textViewList.get(count).setText("1");
         if (randomNumbersArray[count] != 1) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
+
+            disableNumberButton(); // делаем не кликабельными кнопки набора числа на экране
+
             newNumberSetWithDelay();
         } else {
             count++;
