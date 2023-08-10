@@ -589,6 +589,10 @@ public class ActivityTraining extends AppCompatActivity {
         count = 0;
 
         for (TextView textView : textViewList) {
+
+            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros)); // попробуем вставить изменение фона сюда **************************************************
+
+
             getRandomIntegers(textView);
         }
 
