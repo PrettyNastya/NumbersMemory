@@ -16,7 +16,7 @@ import android.content.SharedPreferences;
 public class ActivitySeconds extends AppCompatActivity {
 
 
-    int delay;
+    long delay;
     String delayValue;
     TextView delayForScreen;
     SharedPreferences mSettings;
@@ -32,7 +32,7 @@ public class ActivitySeconds extends AppCompatActivity {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
         if (mSettings.contains(APP_PREFERENCES_DELAY)) {
-            delay = mSettings.getInt(APP_PREFERENCES_DELAY, 1000);
+            delay = mSettings.getLong(APP_PREFERENCES_DELAY, 1000);
         }
 
 
@@ -46,7 +46,12 @@ public class ActivitySeconds extends AppCompatActivity {
         */
 
         if (delay >= 1) {
-            delayValue = Integer.toString(delay / 1000);
+            // delayValue = Long.toString(delay);
+            double doubleDelay = (double) delay/1000  ;
+
+            delayValue = String.valueOf(doubleDelay);
+
+
             //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
 
             delayForScreen.setText(delayValue);
@@ -62,20 +67,24 @@ public class ActivitySeconds extends AppCompatActivity {
 
         if (delay > 2000) {
 
-            delay = delay - 1000;
+            delay = delay - 100;
 
             SharedPreferences.Editor editor = mSettings.edit();
-            editor.putInt(APP_PREFERENCES_DELAY, delay);
+            editor.putLong(APP_PREFERENCES_DELAY, delay);
             editor.apply();
 
-            delayValue = Integer.toString(delay / 1000);
+            //delayValue = Long.toString(delay);
+            double doubleDelay = (double) delay/1000  ;
+
+            delayValue = String.valueOf(doubleDelay);
+
             delayForScreen.setText(delayValue);
         } else {
 
             delay = 500;
 
             SharedPreferences.Editor editor = mSettings.edit();
-            editor.putInt(APP_PREFERENCES_DELAY, delay);
+            editor.putLong(APP_PREFERENCES_DELAY, delay);
             editor.apply();
 
             delayValue = "0.5";
@@ -91,13 +100,17 @@ public class ActivitySeconds extends AppCompatActivity {
 
         if (delay < 10000) {
 
-            delay = delay + 1000;
+            delay = delay + 100;
 
             SharedPreferences.Editor editor = mSettings.edit();
-            editor.putInt(APP_PREFERENCES_DELAY, delay);
+            editor.putLong(APP_PREFERENCES_DELAY, delay);
             editor.apply();
 
-            delayValue = Integer.toString(delay / 1000);
+            //delayValue = Long.toString(delay);
+
+            double doubleDelay = (double) delay/1000  ;
+
+            delayValue = String.valueOf(doubleDelay);
             delayForScreen.setText(delayValue);
         }
     }
@@ -105,6 +118,13 @@ public class ActivitySeconds extends AppCompatActivity {
     public void FromActSecndsGoToActTem(View view) {
 
         Intent intent = new Intent(ActivitySeconds.this, ActivityTem.class);
+        startActivity(intent);
+
+    }
+
+    public void goToTrainingFromActSec(View view) {
+
+        Intent intent = new Intent(ActivitySeconds.this, ActivityTraining.class);
         startActivity(intent);
 
     }

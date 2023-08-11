@@ -74,7 +74,7 @@ public class ActivityTraining extends AppCompatActivity {
     private static final String TAG = "NumbersApp_1";
 
     // public long delay = 2000L;
-    private int currentDelay;
+    private long currentDelay;
 
 
     @Override
@@ -407,7 +407,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void setDelay() {
 
         if (mSettings.contains(APP_PREFERENCES_DELAY)) {
-            currentDelay = mSettings.getInt(APP_PREFERENCES_DELAY, 1000);
+            currentDelay = mSettings.getLong(APP_PREFERENCES_DELAY, 1000);
         }
 
     }
@@ -502,7 +502,6 @@ public class ActivityTraining extends AppCompatActivity {
     }
 
 
-
     // алгоритм задержки на заданный промежуток времени
     public void TextViewForInputHideAndShowWithDelay() {
 
@@ -533,10 +532,8 @@ public class ActivityTraining extends AppCompatActivity {
 
         // long delay = 2000L; // задаётся в миллисикундах, 1000L это 1 секунда, так мы задали задержку на 2 секунды
 
-        long delay = (long) currentDelay;
-        timer.schedule(task, delay);
 
-        //timer.schedule(task, delay);
+        timer.schedule(task, currentDelay);
 
     }
 
