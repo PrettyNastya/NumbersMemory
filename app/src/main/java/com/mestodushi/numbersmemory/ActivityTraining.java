@@ -1,6 +1,7 @@
 package com.mestodushi.numbersmemory;
 
 import static com.mestodushi.numbersmemory.ActivitySeconds.APP_PREFERENCES_DELAY;
+import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ORIGINAL;
 
 import android.content.Context;
 import android.content.Intent;
@@ -76,6 +77,7 @@ public class ActivityTraining extends AppCompatActivity {
     // public long delay = 2000L;
     private long currentDelay;
 
+    int cvetFonaRabochiy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -388,18 +390,55 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void themeCheckAndChange() {
 
-        if (mSettings.contains(APP_PREFERENCES_THEME)) {
-            currentTheme = mSettings.getString(APP_PREFERENCES_THEME, "");
+
+        if (mSettings.contains(APP_PREFERENCES_THEME)) { // если существует такой ключ APP_PREFERENCES_THEME, то
+            currentTheme = mSettings.getString(APP_PREFERENCES_THEME, ""); // присваиваем переменной класса currentTheme строковое значение темы (если ничего нет, то присваиваем пустоту)
         }
 
-
+        // если тема классическая - реализуем её
         if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)) {
+            Log.i(TAG, "В ActivityTraining при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
             setClassicTheme();
         }
 
+        // если тема розовая - реализуем розовую
         if (Objects.equals(currentTheme, APP_PREFERENCES_ROSE)) {
+            Log.i(TAG, "В ActivityTraining при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
             setRoseTheme();
         }
+
+        // если тема оригинальная - реализуем оригинальную
+        if (Objects.equals(currentTheme, APP_PREFERENCES_ORIGINAL)) {
+            Log.i(TAG, "В ActivityTraining при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
+            seOriginalTheme();
+        }
+
+
+
+
+
+    }
+
+    private void seOriginalTheme() { // TODO: Сделать реализацию оригинальной темы
+
+        for (Button button : buttonList) {
+            changeButtonsColorsToOriginale(button);
+        }
+
+        fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.wit2));
+        cvetFonaRabochiy = getResources().getColor(R.color.wit2);
+
+        /*SharedPreferences.Editor editor = mSettings.edit();
+        editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_ROSE);
+        editor.apply();*/
+
+
+    }
+
+    private void changeButtonsColorsToOriginale(Button button) {
+
+        button.setBackgroundColor(getResources().getColor(R.color.purple_500));
+        button.setTextColor(getResources().getColor(R.color.wit2));
 
     }
 
@@ -420,10 +459,11 @@ public class ActivityTraining extends AppCompatActivity {
         }
 
         fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros));
+        cvetFonaRabochiy = getResources().getColor(R.color.ros);
 
-        SharedPreferences.Editor editor = mSettings.edit();
+        /*SharedPreferences.Editor editor = mSettings.edit();
         editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_ROSE);
-        editor.apply();
+        editor.apply();*/
 
     }
 
@@ -434,15 +474,23 @@ public class ActivityTraining extends AppCompatActivity {
 
 
     public void setClassicTheme() {
+
+        Log.i(TAG, "В ActivityTraining зашли в setClassicTheme");
+
         for (Button button : buttonList) {
             changeButtonColorsToClassic(button);
         }
 
         fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.wit2));
+        cvetFonaRabochiy = getResources().getColor(R.color.wit2);
 
+        Log.i(TAG, "В ActivityTraining внутри setClassicTheme назначили белый фон");
+
+        /*
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_CLASSIC);
         editor.apply();
+        */
     }
 
     public void changeButtonColorsToClassic(Button button) {
@@ -575,7 +623,10 @@ public class ActivityTraining extends AppCompatActivity {
 
             enableNumberButton();
 
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros)); // TODO: заменить безусловно розовый фон на соотвествующий выбранной теме цвет
+            // fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros)); // TODO: заменить безусловно розовый фон на соотвествующий выбранной теме цвет
+            // cvetFonaRabochiy
+            fonTrainingActivity.setBackgroundColor(cvetFonaRabochiy);
+
         }
 
     }
@@ -587,8 +638,8 @@ public class ActivityTraining extends AppCompatActivity {
 
         for (TextView textView : textViewList) {
 
-            fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros)); // попробуем вставить изменение фона сюда **************************************************
-
+            //fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros)); // попробуем вставить изменение фона сюда **************************************************
+            fonTrainingActivity.setBackgroundColor(cvetFonaRabochiy);
 
             getRandomIntegers(textView);
         }

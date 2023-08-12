@@ -45,8 +45,8 @@ public class ActivitySeconds extends AppCompatActivity {
 
         */
 
-        if (delay >= 1) {
-            // delayValue = Long.toString(delay);
+        /*if (delay >= 1) {
+            // delayValue = Long.toString(delay);*/
             double doubleDelay = (double) delay/1000  ;
 
             delayValue = String.valueOf(doubleDelay);
@@ -55,17 +55,17 @@ public class ActivitySeconds extends AppCompatActivity {
             //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
 
             delayForScreen.setText(delayValue);
-        } else {
+        /*} else {
             delayValue = "0.5";
             delayForScreen.setText(delayValue);
 
         }
-
+*/
     }
 
     public void onMinusButtonClick(View view) {
 
-        if (delay > 2000) {
+        if (delay > 500) {
 
             delay = delay - 100;
 
