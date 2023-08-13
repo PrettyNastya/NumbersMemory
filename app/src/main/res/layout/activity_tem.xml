@@ -24,7 +24,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="148dp"
         android:onClick="setClassicTheme"
-        android:text="Классическая тема"
+        android:text="чёрно-белая тема"
         android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/button10"
         app:layout_constraintHorizontal_bias="0.267"

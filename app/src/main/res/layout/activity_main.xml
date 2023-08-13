@@ -13,7 +13,7 @@
         android:layout_width="378dp"
         android:layout_height="103dp"
         android:padding="10dp"
-        android:text="  Приветствую тебя в этом приложении! Всё очень легко, нажимай на кнопку старт выбирай сколько секунд будет появлятся цыфра, а потом в окошке пиши число которое ты запомнил. Это очень развивает мозг! Ещё тут можно выбирать темы! Удачи!"
+        android:text="  Приветствую тебя в этом приложении! Всё очень легко,  выбирай сколько секунд будет появлятся цыфра, нажимай на кнопку старт/играть запаминай число а потом в окошке пиши число которое ты запомнил. Это очень развивает мозг! Ещё тут можно выбирать темы! Удачи!"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,20 +24,20 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="137dp"
-        android:layout_height="53dp"
+        android:layout_width="158dp"
+        android:layout_height="75dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="664dp"
+        android:layout_marginTop="640dp"
         android:onClick="onClickGoToThem"
-        android:text="выбрать \n тему"
+        android:text="выбор \n темы \nвыбор секунд"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="143dp"
-        android:layout_height="52dp"
+        android:layout_width="169dp"
+        android:layout_height="74dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="16dp"
         android:text="о приложении"
