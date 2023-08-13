@@ -146,6 +146,34 @@ public class ActivityTem extends AppCompatActivity {
 
     }
 
+    public void setBlueTheme(View view) {
+        changeButtonColorsToBlue(classicThemeButton);
+        changeButtonColorsToBlue(mainActivityButton);
+        changeButtonColorsToBlue(roseThemeButton);
+        changeButtonColorsToBlue(blyThemeButton);
+        changeButtonColorsToBlue(originale);
+        changeButtonColorsToBlue(button26);
+        changeButtonColorsToBlue(button10);
+        changeButtonColorsToBlue(button29);
+        changeButtonColorsToBlue(button25);
+        changeButtonColorsToBlue(button22);
+        changeButtonColorsToBlue(button28);
+        changeButtonColorsToBlue(button27);
+
+        fonThemActivity.setBackgroundColor(getResources().getColor(R.color.bly));
+
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_BLUE);
+        editor.apply();
+
+    }
+
+    public void changeButtonColorsToBlue(Button button){
+        button.setBackgroundColor(getResources().getColor(R.color.bly2));
+        button.setTextColor(getResources().getColor(R.color.wit2));
+
+    }
+
     public void goToMainFromTem(View view) {
 
         Intent intent = new Intent(ActivityTem.this, MainActivity.class);
@@ -204,6 +232,10 @@ public class ActivityTem extends AppCompatActivity {
         }
         if (Objects.equals(currentTheme, APP_PREFERENCES_ROSE)){
             setRoseTheme(roseThemeButton);
+
+        }
+        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)){
+            setBlueTheme(blyThemeButton);
 
         }
 
