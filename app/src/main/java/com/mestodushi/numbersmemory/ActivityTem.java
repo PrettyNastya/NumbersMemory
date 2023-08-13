@@ -18,7 +18,7 @@ import java.util.TimerTask;
 
 public class ActivityTem extends AppCompatActivity {
 
-    Button classicThemeButton, mainActivityButton, roseThemeButton,blyThemeButton, originale, button26, button10, button29, button25, button22, button28;
+    Button classicThemeButton, mainActivityButton, roseThemeButton,blyThemeButton, originale, button26, button10, button29, button25, button22, button28, button27;
 
     ConstraintLayout fonThemActivity;
 
@@ -48,6 +48,10 @@ public class ActivityTem extends AppCompatActivity {
         button25 = findViewById(R.id.button25);
         button22 = findViewById(R.id.button22);
         button28 = findViewById(R.id.button28);
+        button27 = findViewById(R.id.button27);
+
+
+
 
         fonThemActivity = findViewById(R.id.fonThemActivity);
 
@@ -69,6 +73,7 @@ public class ActivityTem extends AppCompatActivity {
         changeButtonColorsToClassic(button25);
         changeButtonColorsToClassic(button22);
         changeButtonColorsToClassic(button28);
+        changeButtonColorsToClassic(button27);
 
         fonThemActivity.setBackgroundColor(getResources().getColor(R.color.wit2));
 
@@ -97,6 +102,7 @@ public class ActivityTem extends AppCompatActivity {
         changeButtonsColorsToOriginal(button25);
         changeButtonsColorsToOriginal(button22);
         changeButtonsColorsToOriginal(button28);
+        changeButtonsColorsToOriginal(button27);
 
         fonThemActivity.setBackgroundColor(getResources().getColor(R.color.wit2));
 
@@ -124,6 +130,7 @@ public class ActivityTem extends AppCompatActivity {
         changeButtonsColorsToRose(button25);
         changeButtonsColorsToRose(button22);
         changeButtonsColorsToRose(button28);
+        changeButtonsColorsToRose(button27);
 
         fonThemActivity.setBackgroundColor(getResources().getColor(R.color.ros));
 
