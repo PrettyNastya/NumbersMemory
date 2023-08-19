@@ -52,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void goToActAboutFromMaiAct(View view) {
+
+        Intent intent = new Intent(MainActivity.this, ActivitiAbout.class);
+        startActivity(intent);
+
+    }
+
     public void setClassicTheme() {
 
         changeButtonColorsToClassic(startButton);
