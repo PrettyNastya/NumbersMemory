@@ -31,7 +31,11 @@ public class ActivityTem extends AppCompatActivity {
     SharedPreferences mSettings;
 
     String currentTheme = "";
-
+    /**
+    *
+    *прикольный комментарий
+    *
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -234,11 +238,12 @@ public class ActivityTem extends AppCompatActivity {
             setRoseTheme(roseThemeButton);
 
         }
-        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)){
+        if (Objects.equals(currentTheme, APP_PREFERENCES_BLUE)){
             setBlueTheme(blyThemeButton);
 
         }
 
+        //TODO: Сделать обработку оригинальной темы
 
     }
 

@@ -1,6 +1,7 @@
 package com.mestodushi.numbersmemory;
 
 import static com.mestodushi.numbersmemory.ActivitySeconds.APP_PREFERENCES_DELAY;
+import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_BLUE;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ORIGINAL;
 
 import android.content.Context;
@@ -34,7 +35,7 @@ public class ActivityTraining extends AppCompatActivity {
     int buttonTextSize = 18;
     TextView textViewShow_1, textViewShow_2, textViewShow_3, textViewShow_4, textViewShow_5;
 
-    Button button_del, button11, button7, button9, button12, button13, button14, button17, button15, button18, button19;//мяу
+    Button button_del, button11, button7, button9, button12, button13, button14, button17, button15, button18,  button19, exit_button;//мяу
 
     ArrayList<Button> buttonList;
 
@@ -122,6 +123,8 @@ public class ActivityTraining extends AppCompatActivity {
 
         button_del = findViewById(R.id.button_del);
 
+        exit_button = findViewById(R.id.button16);
+
 
         // наполняем массив кнопками
         buttonList = new ArrayList<Button>();
@@ -150,6 +153,8 @@ public class ActivityTraining extends AppCompatActivity {
         setDelay();
         newNumberSet();
 
+
+
     }
 
 
@@ -161,7 +166,7 @@ public class ActivityTraining extends AppCompatActivity {
     public void button_0_click(View view) {
         //<3
         textViewList.get(count).setText("0");
-        Log.i(TAG, "Зашли в button_0_click");
+      //  Log.i(TAG, "Зашли в button_0_click");
 
         if (randomNumbersArray[count] != 0) {
             fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.red));
@@ -170,7 +175,7 @@ public class ActivityTraining extends AppCompatActivity {
             newNumberSetWithDelay();
         } else {
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+          //  Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
@@ -194,11 +199,11 @@ public class ActivityTraining extends AppCompatActivity {
             newNumberSetWithDelay();
         } else {
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+          //  Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
-                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+              //  Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
                 newNumberSet();
             }
         }
@@ -217,11 +222,11 @@ public class ActivityTraining extends AppCompatActivity {
             newNumberSetWithDelay();
         } else {
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+          //  Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
-                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+             //   Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
                 newNumberSet();
             }
         }
@@ -239,11 +244,11 @@ public class ActivityTraining extends AppCompatActivity {
         } else {
 
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+        //    Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
-                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+              //  Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
                 newNumberSet();
             }
 
@@ -262,11 +267,11 @@ public class ActivityTraining extends AppCompatActivity {
             newNumberSetWithDelay();
         } else {
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+         //   Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
-                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+             //   Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
                 newNumberSet();
             }
 
@@ -284,11 +289,11 @@ public class ActivityTraining extends AppCompatActivity {
             newNumberSetWithDelay();
         } else {
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+          //  Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
-                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+              //  Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
                 newNumberSet();
             }
 
@@ -306,11 +311,11 @@ public class ActivityTraining extends AppCompatActivity {
             newNumberSetWithDelay();
         } else {
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+        //    Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
-                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+             //   Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
                 newNumberSet();
             }
 
@@ -328,11 +333,11 @@ public class ActivityTraining extends AppCompatActivity {
             newNumberSetWithDelay();
         } else {
             count++;
-            Log.i(TAG, "Переменная count инкрементирована и равна " + count);
+           // Log.i(TAG, "Переменная count инкрементирована и равна " + count);
 
             if (count > 4) {
                 count = 0;
-                Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
+           //     Log.i(TAG, "Переменная count сброшена на 0 и равна " + count);
                 newNumberSet();
             }
 
@@ -390,6 +395,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void themeCheckAndChange() {
 
+        Log.i(TAG, "В ActivityTraining зашли в themeCheckAndChange ");
 
         if (mSettings.contains(APP_PREFERENCES_THEME)) { // если существует такой ключ APP_PREFERENCES_THEME, то
             currentTheme = mSettings.getString(APP_PREFERENCES_THEME, ""); // присваиваем переменной класса currentTheme строковое значение темы (если ничего нет, то присваиваем пустоту)
@@ -414,6 +420,11 @@ public class ActivityTraining extends AppCompatActivity {
         }
 
 
+        // если тема голубая - реализуем голубую
+        if (Objects.equals(currentTheme, APP_PREFERENCES_BLUE)) {
+            Log.i(TAG, "В ActivityTraining при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
+            setBlueTheme();
+        }
 
 
 
@@ -454,6 +465,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     public void setRoseTheme() {
 
+        Log.i(TAG, "В ActivityTraining зашли в setRoseTheme");
         for (Button button : buttonList) {
             changeButtonsColorsToRose(button);
         }
@@ -498,6 +510,27 @@ public class ActivityTraining extends AppCompatActivity {
         button.setTextColor(getResources().getColor(R.color.black));
 
     }
+
+    public void setBlueTheme() {
+
+        Log.i(TAG, "В ActivityTraining зашли в setBlueTheme");
+        for (Button button : buttonList) {
+            changeButtonColorsToBlue(button);
+        }
+
+        changeButtonColorsToBlue(exit_button);
+
+        fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.bly2));
+        cvetFonaRabochiy = getResources().getColor(R.color.bly);
+
+
+    }
+
+    public void changeButtonColorsToBlue(Button button) {
+        button.setBackgroundColor(getResources().getColor(R.color.bly2));
+        button.setTextColor(getResources().getColor(R.color.white));
+    }
+
 
 
     public void getRandomIntegers(TextView textView) {

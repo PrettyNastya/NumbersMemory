@@ -1,6 +1,7 @@
 package com.mestodushi.numbersmemory;
 
 
+import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_BLUE;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_THEME;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_CLASSIC;
 import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ROSE;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         themeButton = findViewById(R.id.button);
         aboutButton = findViewById(R.id.button2);
         fonMainActivity = findViewById(R.id.fonMainActivity);
+        startButton = findViewById(R.id.button3);
 
         themeCheckAndChange();
 
@@ -75,16 +77,27 @@ public class MainActivity extends AppCompatActivity {
         fonMainActivity.setBackgroundColor(getResources().getColor(R.color.ros));
     }
 
-    /*
-    public void setClassicTheme() {
 
-        changeButtonColorsToClassic(startButton);
-        changeButtonColorsToClassic(themeButton);
-        changeButtonColorsToClassic(aboutButton);
-        fonMainActivity.setBackgroundColor(getResources().getColor(R.color.wit2));
+    public void setBlueTheme() {
+
+        changeButtonColorsToBlue(startButton);
+        changeButtonColorsToBlue(themeButton);
+        changeButtonColorsToBlue(aboutButton);
+
+        fonMainActivity.setBackgroundColor(getResources().getColor(R.color.bly));
+
+
+
     }
 
-     */
+    public void changeButtonColorsToBlue(Button button){
+        button.setBackgroundColor(getResources().getColor(R.color.bly2));
+        button.setTextColor(getResources().getColor(R.color.wit2));
+
+    }
+
+
+
     public void goToTrainingFromMaiCnlick(View view) {
 
         Intent intent = new Intent(MainActivity.this, ActivityTraining.class);
@@ -128,13 +141,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        /*
-        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)){
-            setClassicTheme();
+
+        if (Objects.equals(currentTheme, APP_PREFERENCES_BLUE)){
+            setBlueTheme();
 
         }
 
-         */
 
 
 

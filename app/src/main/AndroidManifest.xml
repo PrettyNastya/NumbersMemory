@@ -28,6 +28,7 @@
         <activity android:name="com.mestodushi.numbersmemory.ActivityTem" />
         <activity android:name="com.mestodushi.numbersmemory.ActivityTraining" />
         <activity android:name="com.mestodushi.numbersmemory.ActivitySeconds" />
+        <activity android:name="com.mestodushi.numbersmemory.ActivitiAbout" />
     </application>
 
 </manifest>
