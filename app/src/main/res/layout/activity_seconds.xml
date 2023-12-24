@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fonSecondsActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <Button
         android:id="@+id/buttonMinus"
@@ -34,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button24"
+        android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="152dp"
@@ -61,7 +64,7 @@
         app:layout_constraintStart_toEndOf="@+id/buttonMinus" />
 
     <Button
-        android:id="@+id/button20"
+        android:id="@+id/playButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="132dp"

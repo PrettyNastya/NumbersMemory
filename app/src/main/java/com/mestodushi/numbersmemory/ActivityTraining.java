@@ -520,6 +520,10 @@ public class ActivityTraining extends AppCompatActivity {
 
         changeButtonColorsToBlue(exit_button);
 
+
+
+
+
         fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.bly2));
         cvetFonaRabochiy = getResources().getColor(R.color.bly);
 
