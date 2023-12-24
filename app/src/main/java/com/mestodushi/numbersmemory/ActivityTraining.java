@@ -662,7 +662,8 @@ public class ActivityTraining extends AppCompatActivity {
 
             // fonTrainingActivity.setBackgroundColor(getResources().getColor(R.color.ros)); // TODO: заменить безусловно розовый фон на соотвествующий выбранной теме цвет
             // cvetFonaRabochiy
-            fonTrainingActivity.setBackgroundColor(cvetFonaRabochiy);
+            fonTrainingActivity.setBackgroundColor(cvetFonaRabochiy); // TODO: нужно ли это здесь? Нужно ли задавать фон всего трейнинг активити, или только окна ввода? Или цвета и вспомогательных (не отображаемых по умолчанию) вьюшек должны быть назначенв в он-криэйт или в момент назначения темы?
+            //TODO: нужно ли задавать цвет текста в соответствии с актуальной темой?
 
         }
 

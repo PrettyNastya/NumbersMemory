@@ -57,7 +57,7 @@ public class ActivitySeconds extends AppCompatActivity {
            fonSecondActivity = findViewById(R.id.fonSecondsActivity);
 
 
-          //  themeCheckAndChange();
+         // TODO: themeCheckAndChange(); - НАПИСАТЬ РЕАЛИЗАЦИЮ
 
             // наполняем массив кнопками
             buttonList = new ArrayList<Button>();
@@ -79,7 +79,7 @@ public class ActivitySeconds extends AppCompatActivity {
         */
 
         /*if (delay >= 1) {
-            // delayValue = Long.toString(delay);*/
+            delayValue = Long.toString(delay);*/
             double doubleDelay = (double) delay/1000  ;
 
             delayValue = String.valueOf(doubleDelay);
@@ -163,6 +163,9 @@ public class ActivitySeconds extends AppCompatActivity {
     }
 
 
+
+
+
     public void setBlueTheme() {  // установка голубой темы
 
         //changeButtonColorsToBlue(exitButton);
@@ -172,12 +175,14 @@ public class ActivitySeconds extends AppCompatActivity {
         }
 
 
-
-
         fonSecondActivity.setBackgroundColor(getResources().getColor(R.color.bly));
 
 
     }
+
+
+
+
 
     public void changeButtonColorsToBlue(Button button) {
         button.setBackgroundColor(getResources().getColor(R.color.bly2));
