@@ -51,6 +51,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     SharedPreferences mSettings;
 
+
     String currentTheme = "";
     ConstraintLayout fonTrainingActivity;
 
@@ -158,10 +159,15 @@ public class ActivityTraining extends AppCompatActivity {
     }
 
 
-    public void button_del_click(View view) {
+
+    // TODO:// TODO:// TODO:
+    public void button_del_click(View view) { // TODO: Сделать кнопку стирания пооследнего числа
+    // TODO:// TODO:// TODO:
 
         // здесь должна быть реализована обработка нажатия кнопки del
     }
+
+
 
     public void button_0_click(View view) {
         //<3
@@ -368,6 +374,13 @@ public class ActivityTraining extends AppCompatActivity {
 
     }
 
+
+    /*if (Настины оценки = все 4){
+        Подарить Насте макбук
+    } else {
+        Подарить Насте жевачку
+    }*/
+
     /// этот метод отвечает за фон при ошибке числа
     public void button_1_click(View view) {
         textViewList.get(count).setText("1");
@@ -416,7 +429,7 @@ public class ActivityTraining extends AppCompatActivity {
         // если тема оригинальная - реализуем оригинальную
         if (Objects.equals(currentTheme, APP_PREFERENCES_ORIGINAL)) {
             Log.i(TAG, "В ActivityTraining при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
-            seOriginalTheme();
+            setOriginalTheme();
         }
 
 
@@ -430,7 +443,7 @@ public class ActivityTraining extends AppCompatActivity {
 
     }
 
-    private void seOriginalTheme() { // TODO: Сделать реализацию оригинальной темы
+    private void setOriginalTheme() { // TODO: Сделать реализацию оригинальной темы
 
         for (Button button : buttonList) {
             changeButtonsColorsToOriginale(button);

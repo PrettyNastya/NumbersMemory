@@ -1,10 +1,17 @@
 package com.mestodushi.numbersmemory;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_BLUE;
+import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ORIGINAL;
+import static com.mestodushi.numbersmemory.ActivityTem.APP_PREFERENCES_ROSE;
 import static com.mestodushi.numbersmemory.ActivityTraining.APP_PREFERENCES;
+import static com.mestodushi.numbersmemory.ActivityTraining.APP_PREFERENCES_CLASSIC;
+import static com.mestodushi.numbersmemory.ActivityTraining.APP_PREFERENCES_THEME;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,14 +22,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.SharedPreferences;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class ActivitySeconds extends AppCompatActivity {
 
     long delay;
     String delayValue;
+    int cvetFonaRabochiy; //TODO: Взято из трэйнинг активити нуэно разобраться кто использует эту переменную
     TextView delayForScreen;
+    String currentTheme = "";
     SharedPreferences mSettings;
+
     public static final String APP_PREFERENCES_DELAY = "exposition_delay";
 
 
@@ -31,8 +42,6 @@ public class ActivitySeconds extends AppCompatActivity {
     ConstraintLayout fonSecondActivity;
 
     ArrayList<Button> buttonList;// массив со всеми кнопками в активити секнд
-
-
 
 
     @Override
@@ -47,17 +56,14 @@ public class ActivitySeconds extends AppCompatActivity {
             delay = mSettings.getLong(APP_PREFERENCES_DELAY, 1000);
 
 
-           exitButton = findViewById(R.id.exitButton);
+            exitButton = findViewById(R.id.exitButton);
             plusButton = findViewById(R.id.onPlusButtonClick);
             minusButton = findViewById(R.id.buttonMinus);
             playButton = findViewById(R.id.playButton);
 
 
+            fonSecondActivity = findViewById(R.id.fonSecondsActivity);
 
-           fonSecondActivity = findViewById(R.id.fonSecondsActivity);
-
-
-         // TODO: themeCheckAndChange(); - НАПИСАТЬ РЕАЛИЗАЦИЮ
 
             // наполняем массив кнопками
             buttonList = new ArrayList<Button>();
@@ -69,7 +75,7 @@ public class ActivitySeconds extends AppCompatActivity {
         }
 
 
-/*
+        /*
         delay = 2000; // дальше задержка даётся в миллисикундах, по этому здесь 1000 = 1 секунда
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putInt(APP_PREFERENCES_DELAY, delay);
@@ -80,20 +86,18 @@ public class ActivitySeconds extends AppCompatActivity {
 
         /*if (delay >= 1) {
             delayValue = Long.toString(delay);*/
-            double doubleDelay = (double) delay/1000  ;
+        double doubleDelay = (double) delay / 1000;
 
-            delayValue = String.valueOf(doubleDelay);
+        delayValue = String.valueOf(doubleDelay);
 
 
-            //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
+        //Источник: https://java-blog.ru/osnovy/perevod-int-string-java
 
-            delayForScreen.setText(delayValue);
-        /*} else {
-            delayValue = "0.5";
-            delayForScreen.setText(delayValue);
+        delayForScreen.setText(delayValue);
+        Log.i(TAG, "В ActivitySeconds внутри onCreate вызваем themeCheckAndChange") ;
+        themeCheckAndChange();
 
-        }
-*/
+
     }
 
     public void onMinusButtonClick(View view) { // оброботка нажатия кнопки минус
@@ -107,7 +111,7 @@ public class ActivitySeconds extends AppCompatActivity {
             editor.apply();
 
             //delayValue = Long.toString(delay);
-            double doubleDelay = (double) delay/1000  ;
+            double doubleDelay = (double) delay / 1000;
 
             delayValue = String.valueOf(doubleDelay);
 
@@ -141,7 +145,7 @@ public class ActivitySeconds extends AppCompatActivity {
 
             //delayValue = Long.toString(delay);
 
-            double doubleDelay = (double) delay/1000  ;
+            double doubleDelay = (double) delay / 1000;
 
             delayValue = String.valueOf(doubleDelay);
             delayForScreen.setText(delayValue);
@@ -163,15 +167,15 @@ public class ActivitySeconds extends AppCompatActivity {
     }
 
 
-
-
-
     public void setBlueTheme() {  // установка голубой темы
 
         //changeButtonColorsToBlue(exitButton);
 
         for (Button button : buttonList) {
             changeButtonColorsToBlue(button);
+
+            Log.i(TAG, "В ActivitySeconds внутри setBlueTheme вызвали changeButtonColorsToBlue для кнопки " + button);
+
         }
 
 
@@ -181,11 +185,9 @@ public class ActivitySeconds extends AppCompatActivity {
     }
 
 
-
-
-
     public void changeButtonColorsToBlue(Button button) {
         button.setBackgroundColor(getResources().getColor(R.color.bly2));
+        Log.i(TAG, "В ActivitySeconds внутри changeButtonColorsToBlue вызвали setBackgroundColor для кнопки " + button);
         button.setTextColor(getResources().getColor(R.color.wit2));
 
 
@@ -215,8 +217,68 @@ public class ActivitySeconds extends AppCompatActivity {
         button.setBackgroundColor(getResources().getColor(R.color.fil2));
         button.setTextColor(getResources().getColor(R.color.white));
 
+
     }
 
+    private void setOriginalTheme() { // TODO: Сделать реализацию оригинальной темы
+
+        for (Button button : buttonList) {
+            changeButtonsColorsToOriginale(button);
+        }
+
+        fonSecondActivity.setBackgroundColor(getResources().getColor(R.color.wit2));
+        cvetFonaRabochiy = getResources().getColor(R.color.wit2);
+
+        /*SharedPreferences.Editor editor = mSettings.edit();
+        editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_ROSE);
+        editor.apply();*/
+
+
+    }
+
+    private void changeButtonsColorsToOriginale(Button button) {
+
+        button.setBackgroundColor(getResources().getColor(R.color.purple_500));
+        button.setTextColor(getResources().getColor(R.color.wit2));
+
+    }
+
+
+    public void themeCheckAndChange() {
+
+        Log.i(TAG, "В ActivitySeconds зашли в themeCheckAndChange ");
+
+        if (mSettings.contains(APP_PREFERENCES_THEME)) { // если существует такой ключ APP_PREFERENCES_THEME, то
+            currentTheme = mSettings.getString(APP_PREFERENCES_THEME, ""); // присваиваем переменной класса currentTheme строковое значение темы (если ничего нет, то присваиваем пустоту)
+        }
+
+        // если тема классическая - реализуем её
+        if (Objects.equals(currentTheme, APP_PREFERENCES_CLASSIC)) {
+            Log.i(TAG, "В ActivitySeconds внутри themeCheckAndChange при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
+            setClassicTheme();
+        }
+
+        // если тема розовая - реализуем розовую
+        if (Objects.equals(currentTheme, APP_PREFERENCES_ROSE)) {
+            Log.i(TAG, "В ActivitySeconds  внутри themeCheckAndChange при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
+            setRoseTheme();
+        }
+
+        // если тема оригинальная - реализуем оригинальную
+        if (Objects.equals(currentTheme, APP_PREFERENCES_ORIGINAL)) {
+            Log.i(TAG, "В ActivitySeconds  внутри themeCheckAndChange при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
+            setOriginalTheme();
+        }
+
+
+        // если тема голубая - реализуем голубую
+        if (Objects.equals(currentTheme, APP_PREFERENCES_BLUE)) {
+            Log.i(TAG, "В ActivitySeconds  внутри themeCheckAndChange при проверке SharedPreferences  переменная currentTheme равна " + currentTheme);
+            setBlueTheme();
+        }
+
+
+    }
 
 
 }
